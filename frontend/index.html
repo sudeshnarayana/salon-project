@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deliya — Bridal & Beauty Atelier for Women</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="app">
+  <header class="topbar">
+    <div class="brand-text">
+      <h1 class="brand-name">Deliya</h1>
+      <div class="brand-rule"><span></span><p class="brand-tag">Bridal &amp; Beauty Atelier — For Women</p><span></span></div>
+    </div>
+    <nav class="tabs">
+      <button class="tab active" data-tab="services">Services</button>
+      <button class="tab" data-tab="about">About Us</button>
+      <button class="tab" data-tab="gallery">Our Work</button>
+      <button class="tab" data-tab="book">Book a Visit</button>
+      <button class="tab" data-tab="location">Location & Contact</button>
+      <button class="tab" data-tab="mybookings">My Bookings</button>
+      <button class="tab" data-tab="reviews">Reviews</button>
+      <button class="tab" data-tab="admin">Salon Admin</button>
+    </nav>
+  </header>
+
+  <!-- SERVICES -->
+  <section id="tab-services" class="tab-panel active">
+    <div class="intro">
+      <div class="eyebrow">A Space For Women</div>
+      <h2>Bridal beauty &amp; everyday glow</h2>
+      <p class="sub">From skin care and hair treatments to full bridal transformations — every service is delivered by senior stylists in a private, women-only setting.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?auto=format&fit=crop&w=800&q=80" alt="Stylist styling a client's hair">
+      <img src="https://images.unsplash.com/photo-1700760934268-8aa0ef52ce0a?auto=format&fit=crop&w=800&q=80" alt="Precision haircut in progress">
+      <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=800&q=80" alt="Finishing touch after a style">
+    </div>
+
+    <div class="spotlight">
+      <div>
+        <div class="eyebrow">Signature Package</div>
+        <h3>Full Bridal Package</h3>
+        <p>Hair styling, full bridal makeup, saree/gown draping and pre-bridal skin prep — one seamless appointment for your big day.</p>
+      </div>
+      <div>
+        <div class="price-tag"><span>Starting at</span>Rs. 35,000</div>
+        <button class="btn" style="margin-top:10px;" onclick="window.__bookService && window.__bookService('svc_bridal_package')">Reserve This Package</button>
+      </div>
+    </div>
+
+    <div class="cat-chips" id="cat-chips"></div>
+    <div id="services-grid" class="services-grid"></div>
+  </section>
+
+  <!-- ABOUT US -->
+  <section id="tab-about" class="tab-panel">
+    <div class="intro">
+      <div class="eyebrow">Our Journey</div>
+      <h2>About Deliya Salon & Bridal Atelier</h2>
+      <p class="sub">A decade of excellence, tradition, and transformative beauty experiences for Sri Lanka's most discerning women.</p>
+    </div>
+
+    <img src="https://images.unsplash.com/photo-1633846445033-798d9ce87f1b?auto=format&fit=crop&w=1200&q=80" alt="Deliya Salon Interior" class="about-hero">
+
+    <div class="about-story">
+      <h3>Our Story</h3>
+      <p>Founded over a decade ago, Deliya Salon & Bridal Atelier has become Sri Lanka's most trusted destination for beauty and bridal transformation. What began as a vision to create a women-only sanctuary for self-care has grown into a celebrated atelier, known for precision, luxury, and life-changing beauty experiences.</p>
+      <p style="margin-top:14px;">Every bride, every client, every transformation we've had the honor to create has shaped our commitment to excellence. We don't just provide services — we craft memories that last a lifetime.</p>
+    </div>
+
+    <div class="stats-grid" id="stats-container"></div>
+
+    <div class="intro" style="padding:40px 0 20px;">
+      <h2 style="font-size:28px;">Why Choose Deliya</h2>
+    </div>
+    <div class="why-choose" id="why-choose-container"></div>
+
+    <div class="intro" style="padding:40px 0 20px;">
+      <h2 style="font-size:28px;">Our Mission & Vision</h2>
+    </div>
+    <div class="mission-vision">
+      <div class="mv-card">
+        <h3>🎯 Our Mission</h3>
+        <p>To deliver world-class beauty services in a serene, women-only environment where every client feels heard, valued, and transformed. We believe in personalized beauty that celebrates individuality and builds confidence.</p>
+      </div>
+      <div class="mv-card">
+        <h3>✨ Our Vision</h3>
+        <p>To be Sri Lanka's most beloved bridal and beauty atelier — a place where women come to not just look beautiful, but to feel empowered, cherished, and celebrated at their most important moments.</p>
+      </div>
+    </div>
+
+    <div class="intro" style="padding:40px 0 20px;">
+      <h2 style="font-size:28px;">Meet Our Team</h2>
+      <p class="sub" style="max-width:600px;">Senior specialists with decades of combined experience in bridal, makeup, hair, and skincare.</p>
+    </div>
+    <div class="team-grid" id="team-container"></div>
+  </section>
+
+  <!-- OUR WORK GALLERY -->
+  <section id="tab-gallery" class="tab-panel">
+    <div class="intro">
+      <div class="eyebrow">Gallery</div>
+      <h2>Our Work</h2>
+      <p class="sub">Browse real transformations and moments from our studio — every image a story of beauty, confidence, and celebration.</p>
+    </div>
+
+    <div class="gallery-search">
+      <input type="text" id="gallery-search" placeholder="Search by title or description...">
+    </div>
+
+    <div class="gallery-filters" id="gallery-filters"></div>
+
+    <div class="gallery-grid" id="gallery-grid"></div>
+    <div class="no-gallery" id="no-gallery-msg"></div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <div class="lightbox-content">
+      <img id="lightbox-image" src="" alt="">
+      <div class="lightbox-info">
+        <h3 id="lightbox-title"></h3>
+        <p id="lightbox-desc"></p>
+      </div>
+    </div>
+    <button class="lightbox-nav lightbox-prev" onclick="lightboxPrev()">❮</button>
+    <button class="lightbox-nav lightbox-next" onclick="lightboxNext()">❯</button>
+  </div>
+
+  <!-- BOOK -->
+  <section id="tab-book" class="tab-panel">
+    <div class="intro">
+      <div class="eyebrow">Reserve Your Chair</div>
+      <h2>Book your appointment</h2>
+      <p class="sub">Choose a service, pick a stylist and time that suits you — we'll have everything ready when you arrive.</p>
+    </div>
+
+    <div class="booking-wrap">
+      <div class="card">
+        <div class="field">
+          <label>Service</label>
+          <select id="bk-service"></select>
+        </div>
+        <div class="field">
+          <label>Preferred Stylist (optional)</label>
+          <select id="bk-staff"></select>
+        </div>
+        <div class="field">
+          <label>Date</label>
+          <input type="date" id="bk-date">
+        </div>
+        <div class="field">
+          <label>Available Times</label>
+          <div id="bk-slots" class="slots"><span class="slot-empty">Choose a service and date to see available times.</span></div>
+        </div>
+        <div class="field">
+          <label>Your Name</label>
+          <input type="text" id="bk-name" placeholder="Full name">
+        </div>
+        <div class="field">
+          <label>Phone Number</label>
+          <input type="tel" id="bk-phone" placeholder="07X XXX XXXX">
+          <div style="font-size:11px;color:#b09a9a;margin-top:6px;">We use your phone number to find your bookings later — no password needed.</div>
+        </div>
+        <div class="field">
+          <label>Notes (optional)</label>
+          <textarea id="bk-notes" rows="2" placeholder="Any preferences or requests"></textarea>
+        </div>
+        <div class="field">
+          <label>Coupon Code (optional)</label>
+          <div class="coupon-row">
+            <input type="text" id="bk-coupon" placeholder="e.g. WELCOME10">
+            <button type="button" id="bk-apply-coupon">Apply</button>
+          </div>
+          <div class="coupon-msg" id="bk-coupon-msg"></div>
+        </div>
+        <div class="field">
+          <label>Payment</label>
+          <div class="payment-options" id="bk-payment">
+            <label class="payment-opt checked"><input type="radio" name="pay" value="At Salon — Cash" checked> Pay at salon — cash</label>
+            <label class="payment-opt"><input type="radio" name="pay" value="At Salon — Card"> Pay at salon — card</label>
+            <label class="payment-opt"><input type="radio" name="pay" value="Bank Transfer"> Bank transfer (details sent on confirmation)</label>
+          </div>
+        </div>
+        <button class="btn" id="bk-submit" style="width:100%">Confirm Appointment</button>
+      </div>
+
+      <div id="bk-result">
+        <div class="photo-slideshow">
+          <img class="active" src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?auto=format&fit=crop&w=900&q=80" alt="Stylist styling a client's hair">
+          <img src="https://images.unsplash.com/photo-1700760934268-8aa0ef52ce0a?auto=format&fit=crop&w=900&q=80" alt="Precision haircut in progress">
+          <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=80" alt="Finishing blow-dry after a cut">
+          <img src="https://images.unsplash.com/photo-1522335335684-37898b6baf30?auto=format&fit=crop&w=900&q=80" alt="Professional haircut styling">
+          <img src="https://images.unsplash.com/photo-1633846445033-798d9ce87f1b?auto=format&fit=crop&w=900&q=80" alt="Facial treatment and skin care">
+          <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=900&q=80" alt="Spa facial beauty treatment">
+          <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=900&q=80" alt="Professional skin care facial">
+          <div class="slideshow-caption">
+            <div class="eyebrow">The Deliya Experience</div>
+            <h3>Unhurried, precise, beautiful</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION & CONTACT -->
+  <section id="tab-location" class="tab-panel">
+    <div class="intro">
+      <div class="eyebrow">Visit Us</div>
+      <h2>Our Studio Location</h2>
+      <p class="sub">Find us in the heart of Wariyapola — a serene, women-only sanctuary for beauty and transformation.</p>
+    </div>
+
+    <div class="location-hero">
+      <div class="location-card">
+        <div class="location-header">
+          <div class="location-pin">📍</div>
+          <div>
+            <h2 id="loc-business-name">Deliya Salon</h2>
+            <div class="business-status" id="loc-status"></div>
+          </div>
+        </div>
+
+        <div class="location-info">
+          <div class="info-row">
+            <strong>Address</strong>
+            <span id="loc-address">Wariyapola, Sri Lanka</span>
+          </div>
+          <div class="info-row">
+            <strong>City / Province</strong>
+            <span><span id="loc-city">Wariyapola</span>, <span id="loc-province">Central Province</span></span>
+          </div>
+          <div class="info-row">
+            <strong>Postal Code</strong>
+            <span id="loc-postal">—</span>
+          </div>
+          <div class="info-row">
+            <strong>Phone</strong>
+            <span id="loc-phone">—</span>
+          </div>
+          <div class="info-row">
+            <strong>WhatsApp</strong>
+            <span id="loc-whatsapp">—</span>
+          </div>
+          <div class="info-row">
+            <strong>Email</strong>
+            <span id="loc-email">—</span>
+          </div>
+          <div class="info-row">
+            <strong>Hours</strong>
+            <span id="loc-hours">9:00 AM — 9:00 PM</span>
+          </div>
+          <div class="info-row">
+            <strong>Days Open</strong>
+            <span id="loc-days">Monday — Saturday</span>
+          </div>
+        </div>
+
+        <div class="contact-buttons">
+          <a href="tel:" id="call-btn" class="contact-btn">☎️ Call Now</a>
+          <a href="https://wa.me/" id="whatsapp-btn" target="_blank" class="contact-btn whatsapp">💬 WhatsApp Us</a>
+          <a href="mailto:" id="email-btn" class="contact-btn email">✉️ Email Us</a>
+          <a href="https://maps.google.com/" id="directions-btn" target="_blank" class="contact-btn">📍 Get Directions</a>
+          <button class="btn" style="width:100%; margin-top:10px;" onclick="document.querySelector('.tab[data-tab=book]').click(); window.scrollTo({top:0, behavior:'smooth'});">📅 Book Appointment</button>
+        </div>
+      </div>
+
+      <div class="map-container" id="map-container">
+        <div class="map-placeholder">Loading map...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MY BOOKINGS -->
+  <section id="tab-mybookings" class="tab-panel">
+    <div class="intro">
+      <div class="eyebrow">Your Appointments</div>
+      <h2>My Bookings</h2>
+      <p class="sub">Enter the phone number you booked with to view, cancel, or reschedule your appointments.</p>
+    </div>
+    <div class="card lookup-card">
+      <div class="lookup-row">
+        <input type="tel" id="mb-phone" placeholder="Enter your phone number">
+        <button class="btn" id="mb-find">Find</button>
+      </div>
+    </div>
+    <div id="mb-results"></div>
+    <p class="disclaimer">This is a simple phone-number lookup, not a secure login — anyone with your phone number could view these bookings. For a production system, proper account authentication (e.g. via Supabase Auth) is recommended.</p>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="tab-reviews" class="tab-panel">
+    <div class="intro">
+      <div class="eyebrow">Guest Voices</div>
+      <h2>What our guests say</h2>
+      <p class="sub">Real words from guests who've trusted us with their big moments. Share your own experience below.</p>
+    </div>
+    <div class="reviews-summary">
+      <div class="rs-score" id="rs-score">5.0</div>
+      <div>
+        <div class="rs-stars" id="rs-stars">★★★★★</div>
+        <div class="rs-count" id="rs-count">Based on 0 reviews</div>
+      </div>
+    </div>
+    <div id="reviews-list" class="reviews-grid"></div>
+    <div class="card review-form">
+      <h3 style="margin-bottom:18px;">Leave a review</h3>
+      <div class="field"><label>Your Name</label><input type="text" id="rv-name" placeholder="Full name"></div>
+      <div class="field">
+        <label>Your Rating</label>
+        <div class="star-picker" id="rv-star-picker">
+          <span data-val="1">★</span><span data-val="2">★</span><span data-val="3">★</span><span data-val="4">★</span><span data-val="5">★</span>
+        </div>
+      </div>
+      <div class="field"><label>Your Review</label><textarea id="rv-text" rows="3" placeholder="Tell us about your visit"></textarea></div>
+      <button class="btn" id="rv-submit">Submit Review</button>
+    </div>
+  </section>
+
+  <!-- ADMIN -->
+  <section id="tab-admin" class="tab-panel">
+    <div id="admin-login" class="admin-login">
+      <div class="eyebrow">Staff Only</div>
+      <h2 style="margin-top:8px;">Salon Admin</h2>
+      <p class="sub" style="margin-bottom:20px;">Enter the admin passcode to manage the salon.</p>
+      <div class="field"><input type="password" id="admin-pass" placeholder="Passcode"></div>
+      <button class="btn" id="admin-login-btn" style="width:100%">Enter</button>
+      <p class="footnote">Demo passcode: <b>deliya2026</b> — this is a client-side demo lock, not real authentication. A production build needs a real backend (e.g. Supabase Auth with role-based access).</p>
+    </div>
+
+    <div id="admin-panel" style="display:none;">
+      <div class="intro" style="padding-top:20px;">
+        <div class="eyebrow">Dashboard</div>
+        <h2>Manage the atelier</h2>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card"><div class="num" id="stat-today">0</div><div class="lbl">Today's Bookings</div></div>
+        <div class="stat-card"><div class="num" id="stat-upcoming">0</div><div class="lbl">Upcoming</div></div>
+        <div class="stat-card"><div class="num" id="stat-services">0</div><div class="lbl">Active Services</div></div>
+        <div class="stat-card"><div class="num" id="stat-revenue">Rs. 0</div><div class="lbl">Revenue (Completed)</div></div>
+      </div>
+
+      <div class="cat-bars" id="cat-bars"></div>
+
+      <div class="admin-tabs">
+        <button class="admin-tab active" data-admin="bookings">Bookings</button>
+        <button class="admin-tab" data-admin="services">Services</button>
+        <button class="admin-tab" data-admin="staff">Staff</button>
+        <button class="admin-tab" data-admin="closed">Closed Dates</button>
+        <button class="admin-tab" data-admin="coupons">Coupons</button>
+        <button class="admin-tab" data-admin="reviews">Reviews</button>
+        <button class="admin-tab" data-admin="gallery">Gallery</button>
+        <button class="admin-tab" data-admin="business">Business Settings</button>
+      </div>
+
+      <div id="admin-bookings" class="admin-section"><div id="bookings-table-wrap"></div></div>
+
+      <div id="admin-services" class="admin-section" style="display:none;">
+        <h4 style="margin-bottom:18px;">Add New Service</h4>
+        <div class="inline-form" style="grid-template-columns:1.4fr 1fr 1fr 1fr auto;">
+          <div class="field" style="margin:0;"><label>Service name</label><input type="text" id="new-svc-name" placeholder="e.g. Keratin Treatment"></div>
+          <div class="field" style="margin:0;"><label>Category</label>
+            <select id="new-svc-cat"></select>
+          </div>
+          <div class="field" style="margin:0;"><label>Duration (min)</label><input type="number" id="new-svc-dur" placeholder="60"></div>
+          <div class="field" style="margin:0;"><label>Price (Rs.)</label><input type="number" id="new-svc-price" placeholder="5000"></div>
+          <button class="btn" id="add-svc-btn">Add</button>
+        </div>
+        <div id="services-manage-list" class="list-manage"></div>
+        <div style="margin-top:28px;padding-top:28px;border-top:1px solid var(--line);">
+          <h4 style="margin-bottom:18px;">Manage Service Images & Details</h4>
+          <div id="service-edit-list" class="list-manage"></div>
+        </div>
+      </div>
+
+      <div id="admin-staff" class="admin-section" style="display:none;">
+        <div class="inline-form" style="grid-template-columns:1fr 1fr auto;">
+          <div class="field" style="margin:0;"><label>Staff name</label><input type="text" id="new-staff-name" placeholder="e.g. Sanduni Perera"></div>
+          <div class="field" style="margin:0;"><label>Specialty</label><input type="text" id="new-staff-role" placeholder="e.g. Bridal & Makeup Specialist"></div>
+          <button class="btn" id="add-staff-btn">Add</button>
+        </div>
+        <div id="staff-manage-list" class="list-manage"></div>
+      </div>
+
+      <div id="admin-closed" class="admin-section" style="display:none;">
+        <div class="inline-form" style="grid-template-columns:1fr auto;">
+          <div class="field" style="margin:0;"><label>Closed date</label><input type="date" id="new-closed-date"></div>
+          <button class="btn" id="add-closed-btn">Add</button>
+        </div>
+        <div id="closed-manage-list" class="list-manage"></div>
+      </div>
+
+      <div id="admin-coupons" class="admin-section" style="display:none;">
+        <div class="inline-form" style="grid-template-columns:1fr 1fr auto;">
+          <div class="field" style="margin:0;"><label>Coupon code</label><input type="text" id="new-coupon-code" placeholder="e.g. BRIDE2026"></div>
+          <div class="field" style="margin:0;"><label>Discount %</label><input type="number" id="new-coupon-pct" placeholder="10"></div>
+          <button class="btn" id="add-coupon-btn">Add</button>
+        </div>
+        <div id="coupons-manage-list" class="list-manage"></div>
+      </div>
+
+      <div id="admin-reviews" class="admin-section" style="display:none;">
+        <div id="reviews-manage-list" class="list-manage"></div>
+      </div>
+
+      <div id="admin-business" class="admin-section" style="display:none;">
+        <div id="business-settings-edit"></div>
+      </div>
+
+      <button class="btn secondary" id="admin-logout-btn" style="margin-top:26px;">Log out</button>
+    </div>
+  </section>
+
+  <p class="footnote">Booking, service, and review data on this page is shared and visible to everyone who opens this link — it's a working demo, not a production system.</p>
+
+  <div class="social-icons">
+    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Follow us on Facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+      </svg>
+    </a>
+    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Follow us on Instagram">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2m-.3 2c-2.1 0-3.8 1.7-3.8 3.8v8.4c0 2.1 1.7 3.8 3.8 3.8h8.4c2.1 0 3.8-1.7 3.8-3.8V7.8c0-2.1-1.7-3.8-3.8-3.8H7.5m10.5 3a1.5 1.5 0 110-3 1.5 1.5 0 010 3m-4.2 1a4 4 0 110 8 4 4 0 010-8m0 2a2 2 0 100 4 2 2 0 000-4"/>
+      </svg>
+    </a>
+  </div>
+
+  <a href="https://wa.me/" id="whatsapp-float" class="whatsapp-float" title="WhatsApp us">💬</a>
+  <div class="sticky-cta" id="sticky-cta"><button onclick="document.querySelector('.tab[data-tab=book]').click(); window.scrollTo({top:0, behavior:'smooth'})">Book Appointment</button></div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
